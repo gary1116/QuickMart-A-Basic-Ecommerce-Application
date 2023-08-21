@@ -12,5 +12,6 @@ import com.garyMeledath.QuickMart.Entity.Product;
 @CrossOrigin("http://localhost:4200")
 public interface ProductRepository extends JpaRepository<Product, Long> {
 	Page<Product> findByCategoryId(@Param("id") Long id, Pageable pageble);
-
+	
+	Page<Product> findByNameContaining(@Param("name") String name, Pageable pageble);
 }
