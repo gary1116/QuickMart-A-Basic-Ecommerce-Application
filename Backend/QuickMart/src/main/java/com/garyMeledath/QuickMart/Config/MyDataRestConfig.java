@@ -15,8 +15,10 @@ import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
+import com.garyMeledath.QuickMart.Entity.Country;
 import com.garyMeledath.QuickMart.Entity.Product;
 import com.garyMeledath.QuickMart.Entity.ProductCategory;
+import com.garyMeledath.QuickMart.Entity.State;
 
 @Configuration
 public class MyDataRestConfig implements RepositoryRestConfigurer{
@@ -38,22 +40,34 @@ public class MyDataRestConfig implements RepositoryRestConfigurer{
 
 //	DISABLE THESE HTTP METHODS for product\\
 
-		config.getExposureConfiguration()
-			   .forDomainType(Product.class)
-			   .withItemExposure((metadata, httpMethods)-> httpMethods.disable(unSupportedActions))
-			   .withCollectionExposure((metadata, httpMethods)-> httpMethods.disable(unSupportedActions));
-		
+		DisableHttpMethods(Product.class,config, unSupportedActions);
+
 		
 //		DISABLE THESE HTTP METHODS for product category\\
 
-		config.getExposureConfiguration()
-		   .forDomainType(ProductCategory.class)
-		   .withItemExposure((metadata, httpMethods)-> httpMethods.disable(unSupportedActions))
-		   .withCollectionExposure((metadata, httpMethods)-> httpMethods.disable(unSupportedActions));
+		DisableHttpMethods(ProductCategory.class,config, unSupportedActions);
 	
-	
+//		DISABLE THESE HTTP METHODS for Country\\
+
+		DisableHttpMethods(Country.class,config, unSupportedActions);
+		
+//		DISABLE THESE HTTP METHODS for State\\
+
+		DisableHttpMethods(State.class,config, unSupportedActions);
+
+		
 		//call an internal method 
 		exposeIds(config);
+	}
+
+
+
+
+	private void DisableHttpMethods(Class theClass,RepositoryRestConfiguration config, HttpMethod[] unSupportedActions) {
+		config.getExposureConfiguration()
+		   .forDomainType(theClass)
+		   .withItemExposure((metadata, httpMethods)-> httpMethods.disable(unSupportedActions))
+		   .withCollectionExposure((metadata, httpMethods)-> httpMethods.disable(unSupportedActions));
 	}
 
 
