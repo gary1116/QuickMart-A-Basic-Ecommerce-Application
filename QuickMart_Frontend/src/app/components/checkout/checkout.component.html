@@ -13,6 +13,18 @@
                             <div class="input-space">
                                 <input formControlName="firstName" type="text">
 
+                                <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched) "
+                                    class="alert alert-danger">
+                                    <!-- invalid means if validations have failed or not, dirty means if user has changed the field value and touched means if field lost focus -->
+                                    <div
+                                        *ngIf="firstName && firstName.errors && (firstName.errors['required'] || firstName.errors['notOnlyWhitespace'])">
+                                        First
+                                        Name is required</div>
+
+                                    <div *ngIf="firstName && firstName.errors && firstName.errors['minlength']">First
+                                        Name must be atleast 2 characters Long</div>
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -24,6 +36,19 @@
                             <div class="input-space">
                                 <input formControlName="lastName" type="text">
 
+                                <div *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched) "
+                                    class="alert alert-danger">
+                                    <!-- invalid means if validations have failed or not, dirty means if user has changed the field value and touched means if field lost focus -->
+                                    <div
+                                        *ngIf="lastName && lastName.errors && (lastName.errors['required'] || lastName.errors['notOnlyWhitespace'])">
+                                        Last Name
+                                        is required</div>
+
+                                    <div *ngIf="lastName && lastName.errors && lastName.errors['minlength']">Last Name
+                                        must be atleast 2 characters Long</div>
+
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -33,6 +58,17 @@
                         <div class="col-md-9">
                             <div class="input-space">
                                 <input formControlName="email" type="text">
+
+                                <div *ngIf="email?.invalid && (email?.dirty || email?.touched) "
+                                    class="alert alert-danger">
+                                    <!-- invalid means if validations have failed or not, dirty means if user has changed the field value and touched means if field lost focus -->
+                                    <div *ngIf="email && email.errors && email.errors['required']"> Email
+                                        is required.</div>
+
+                                    <div *ngIf="email && email.errors && email.errors['pattern']">Email must be in valid
+                                        email address format</div>
+
+                                </div>
 
                             </div>
                         </div>
@@ -54,6 +90,14 @@
                                         {{country.name}}
                                     </option>
                                 </select>
+                                <div *ngIf="shippingAddressCountry?.invalid && (shippingAddressCountry?.dirty || shippingAddressCountry?.touched) "
+                                    class="alert alert-danger">
+                                    <!-- invalid means if validations have failed or not, dirty means if user has changed the field value and touched means if field lost focus -->
+                                    <div
+                                        *ngIf="shippingAddressCountry && shippingAddressCountry.errors && shippingAddressCountry.errors['required']">
+                                        Country is required.
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -65,6 +109,16 @@
                             <div class="input-space">
                                 <input formControlName="street" type="text">
 
+                                <div *ngIf="shippingAddressStreet?.invalid && (shippingAddressStreet?.dirty || shippingAddressStreet?.touched) "
+                                    class="alert alert-danger">
+                                    <!-- invalid means if validations have failed or not, dirty means if user has changed the field value and touched means if field lost focus -->
+                                    <div
+                                        *ngIf="shippingAddressStreet && shippingAddressStreet.errors && (shippingAddressStreet.errors['required'] || shippingAddressStreet.errors['notOnlyWhitespace'])">
+                                        Street is required
+                                    </div>
+
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -74,6 +128,16 @@
                         <div class="col-md-9">
                             <div class="input-space">
                                 <input formControlName="city" type="text">
+
+                                <div *ngIf="shippingAddressCity?.invalid && (shippingAddressCity?.dirty || shippingAddressCity?.touched) "
+                                    class="alert alert-danger">
+                                    <!-- invalid means if validations have failed or not, dirty means if user has changed the field value and touched means if field lost focus -->
+                                    <div
+                                        *ngIf="shippingAddressCity && shippingAddressCity.errors && (shippingAddressCity.errors['required'] || shippingAddressCity.errors['notOnlyWhitespace'])">
+                                        City is required
+                                    </div>
+
+                                </div>
 
                             </div>
                         </div>
@@ -89,6 +153,17 @@
                                         {{state.name}}
                                     </option>
                                 </select>
+
+                                <div *ngIf="shippingAddressState?.invalid && (shippingAddressState?.dirty || shippingAddressState?.touched) "
+                                    class="alert alert-danger">
+                                    <!-- invalid means if validations have failed or not, dirty means if user has changed the field value and touched means if field lost focus -->
+                                    <div
+                                        *ngIf="shippingAddressState && shippingAddressState.errors && shippingAddressState.errors['required']">
+                                        State
+                                        is required.
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -98,6 +173,17 @@
                         <div class="col-md-9">
                             <div class="input-space">
                                 <input formControlName="zipCode" type="text">
+
+                                <div *ngIf="shippingAddressZipcode?.invalid && (shippingAddressZipcode?.dirty || shippingAddressZipcode?.touched) "
+                                    class="alert alert-danger">
+                                    <!-- invalid means if validations have failed or not, dirty means if user has changed the
+                                    field value and touched means if field lost focus -->
+                                    <div
+                                        *ngIf="shippingAddressZipcode && shippingAddressZipcode.errors && (shippingAddressZipcode.errors['required'] || shippingAddressZipcode.errors['notOnlyWhitespace'])">
+                                        ZipCode is required
+                                    </div>
+
+                                </div>
 
                             </div>
                         </div>
@@ -126,6 +212,16 @@
                                         {{country.name}}
                                     </option>
                                 </select>
+
+                                <div *ngIf="billingAddressCountry?.invalid && (billingAddressCountry?.dirty || billingAddressCountry?.touched) "
+                                    class="alert alert-danger">
+                                    <!-- invalid means if validations have failed or not, dirty means if user has changed the field value and touched means if field lost focus -->
+                                    <div
+                                        *ngIf="billingAddressCountry && billingAddressCountry.errors && billingAddressCountry.errors['required']">
+                                        Country is required.
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -136,6 +232,17 @@
                             <div class="input-space">
                                 <input formControlName="street" type="text">
 
+                                <div *ngIf="billingAddressStreet?.invalid && (billingAddressStreet?.dirty || billingAddressStreet?.touched) "
+                                    class="alert alert-danger">
+                                    <!-- invalid means if validations have failed or not, dirty means if user has changed the field value and touched means if field lost focus -->
+                                    <div
+                                        *ngIf="billingAddressStreet && billingAddressStreet.errors && (billingAddressStreet.errors['required'] || billingAddressStreet.errors['notOnlyWhitespace'])">
+                                        Street is required
+                                    </div>
+
+                                </div>
+
+
                             </div>
                         </div>
                     </div>
@@ -145,6 +252,17 @@
                         <div class="col-md-9">
                             <div class="input-space">
                                 <input formControlName="city" type="text">
+
+                                <div *ngIf="billingAddressCity?.invalid && (billingAddressCity?.dirty || billingAddressCity?.touched) "
+                                    class="alert alert-danger">
+                                    <!-- invalid means if validations have failed or not, dirty means if user has changed the field value and touched means if field lost focus -->
+                                    <div
+                                        *ngIf="billingAddressCity && billingAddressCity.errors && (billingAddressCity.errors['required'] || billingAddressCity.errors['notOnlyWhitespace'])">
+                                        City is required
+                                    </div>
+
+                                </div>
+
 
                             </div>
                         </div>
@@ -160,6 +278,17 @@
                                         {{state.name}}
                                     </option>
                                 </select>
+
+                                <div *ngIf="billingAddressState?.invalid && (billingAddressState?.dirty || billingAddressState?.touched) "
+                                    class="alert alert-danger">
+                                    <!-- invalid means if validations have failed or not, dirty means if user has changed the field value and touched means if field lost focus -->
+                                    <div
+                                        *ngIf="billingAddressState && billingAddressState.errors && billingAddressState.errors['required']">
+                                        State
+                                        is required.
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -169,6 +298,18 @@
                         <div class="col-md-9">
                             <div class="input-space">
                                 <input formControlName="zipCode" type="text">
+
+
+                                <div *ngIf="billingAddressZipcode?.invalid && (billingAddressZipcode?.dirty || billingAddressZipcode?.touched) "
+                                    class="alert alert-danger">
+                                    <!-- invalid means if validations have failed or not, dirty means if user has changed the
+                                field value and touched means if field lost focus -->
+                                    <div
+                                        *ngIf="billingAddressZipcode && billingAddressZipcode.errors && (billingAddressZipcode.errors['required'] || billingAddressZipcode.errors['notOnlyWhitespace'])">
+                                        ZipCode is required
+                                    </div>
+
+                                </div>
 
                             </div>
                         </div>
@@ -188,6 +329,15 @@
                                     <option>Visa</option>
                                     <option>Mastercard</option>
                                 </select>
+                                <div *ngIf="creditCardType?.invalid && (creditCardType?.dirty || creditCardType?.touched) "
+                                    class="alert alert-danger">
+                                    <!-- invalid means if validations have failed or not, dirty means if user has changed the field value and touched means if field lost focus -->
+                                    <div
+                                        *ngIf="creditCardType && creditCardType.errors && creditCardType.errors['required']">
+                                        Selecting Credit Card Type is required.
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -199,6 +349,20 @@
                             <div class="input-space">
                                 <input formControlName="nameOnCard" type="text">
 
+                                <div *ngIf="creditCardnameOnCard?.invalid && (creditCardnameOnCard?.dirty || creditCardnameOnCard?.touched) "
+                                    class="alert alert-danger">
+                                    <!-- invalid means if validations have failed or not, dirty means if user has changed the field value and touched means if field lost focus -->
+                                    <div
+                                        *ngIf="creditCardnameOnCard && creditCardnameOnCard.errors && creditCardnameOnCard.errors['required']  && creditCardnameOnCard.errors['notOnlyWhitespace']">
+                                        Name On Card is required.
+                                    </div>
+
+                                    <div
+                                        *ngIf="creditCardnameOnCard && creditCardnameOnCard.errors && creditCardnameOnCard.errors['required']  && creditCardnameOnCard.errors['minlength']">
+                                        Name must be atleast 2 characters long.
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -208,6 +372,21 @@
                         <div class="col-md-9">
                             <div class="input-space">
                                 <input formControlName="cardNumber" type="text">
+
+                                <div *ngIf="creditCardcardNumber?.invalid && (creditCardcardNumber?.dirty || creditCardcardNumber?.touched) "
+                                    class="alert alert-danger">
+                                    <!-- invalid means if validations have failed or not, dirty means if user has changed the field value and touched means if field lost focus -->
+                                    <div
+                                        *ngIf="creditCardcardNumber && creditCardcardNumber.errors && creditCardcardNumber.errors['required']">
+                                        Card Number is required.
+                                    </div>
+
+                                    <div
+                                        *ngIf="creditCardcardNumber && creditCardcardNumber.errors && creditCardcardNumber.errors['pattern']">
+                                        Card Number lenth must be 16 digits.
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -217,6 +396,21 @@
                         <div class="col-md-9">
                             <div class="input-space">
                                 <input formControlName="securityCode" type="text">
+
+                                <div *ngIf="creditCardsecurityCode?.invalid && (creditCardsecurityCode?.dirty || creditCardsecurityCode?.touched) "
+                                    class="alert alert-danger">
+                                    <!-- invalid means if validations have failed or not, dirty means if user has changed the field value and touched means if field lost focus -->
+                                    <div
+                                        *ngIf="creditCardsecurityCode && creditCardsecurityCode.errors && creditCardsecurityCode.errors['required']">
+                                        Security Code is required.
+                                    </div>
+
+                                    <div
+                                        *ngIf="creditCardsecurityCode && creditCardsecurityCode.errors && creditCardsecurityCode.errors['pattern']">
+                                        Security Code is length must be 3 digits.
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -238,7 +432,8 @@
                         <div class="col-md-2"><label>Expiration Year</label></div>
                         <div class="col-md-9">
                             <div class="input-space">
-                                <select name="" id="" formControlName="expirationOnYear" (change)="handleMonthsandYears()">
+                                <select name="" id="" formControlName="expirationOnYear"
+                                    (change)="handleMonthsandYears()">
                                     <option *ngFor="let year of creditCardYears">
                                         {{year}}
                                     </option>
@@ -250,13 +445,13 @@
 
                 <!-- order details -->
 
-<div class="form-area">
-<h3>Review Your Order</h3>
-<p>Total Quantity: {{ totalQuantity}}</p>
-<p>Shipping : FREE</p>
-<p>Total Price: {{ totalPrice | currency: 'USD'}}</p>
+                <div class="form-area">
+                    <h3>Review Your Order</h3>
+                    <p>Total Quantity: {{ totalQuantity}}</p>
+                    <p>Shipping : FREE</p>
+                    <p>Total Price: {{ totalPrice | currency: 'USD'}}</p>
 
-</div>
+                </div>
 
                 <!-- submit button -->
                 <div class="text-center">
