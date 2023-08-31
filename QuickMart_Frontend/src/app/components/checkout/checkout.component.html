@@ -353,12 +353,12 @@
                                     class="alert alert-danger">
                                     <!-- invalid means if validations have failed or not, dirty means if user has changed the field value and touched means if field lost focus -->
                                     <div
-                                        *ngIf="creditCardnameOnCard && creditCardnameOnCard.errors && creditCardnameOnCard.errors['required']  && creditCardnameOnCard.errors['notOnlyWhitespace']">
+                                        *ngIf="creditCardnameOnCard && creditCardnameOnCard.errors && (creditCardnameOnCard.errors['required']  || creditCardnameOnCard.errors['notOnlyWhitespace'])">
                                         Name On Card is required.
                                     </div>
 
                                     <div
-                                        *ngIf="creditCardnameOnCard && creditCardnameOnCard.errors && creditCardnameOnCard.errors['required']  && creditCardnameOnCard.errors['minlength']">
+                                        *ngIf="creditCardnameOnCard && creditCardnameOnCard.errors &&  creditCardnameOnCard.errors['minlength']">
                                         Name must be atleast 2 characters long.
                                     </div>
                                 </div>
