@@ -3,9 +3,9 @@ import { Product } from "./product";
 export class CartItem {
 
 
-    id:number;
-    name:String;
-    imageUrl:String;
+    id:string;
+    name:string;
+    imageUrl:string;
     unitPrice:number;
     quantity:number;
 
