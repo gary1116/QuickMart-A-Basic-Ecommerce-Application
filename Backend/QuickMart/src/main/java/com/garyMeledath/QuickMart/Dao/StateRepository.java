@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import com.garyMeledath.QuickMart.Entity.State;
 
 
-@CrossOrigin("http://localhost:4200")
 @RepositoryRestResource
 public interface StateRepository extends JpaRepository<State, Integer>{
 

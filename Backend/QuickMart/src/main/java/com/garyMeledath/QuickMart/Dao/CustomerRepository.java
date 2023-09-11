@@ -7,4 +7,5 @@ import com.garyMeledath.QuickMart.Entity.Customer;
 public interface CustomerRepository extends JpaRepository<Customer, Long>{
 
 	
+	Customer findByEmail(String theEmail);
 }

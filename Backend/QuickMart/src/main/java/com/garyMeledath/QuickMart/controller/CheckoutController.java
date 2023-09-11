@@ -10,7 +10,6 @@ import com.garyMeledath.QuickMart.Dto.Purchase;
 import com.garyMeledath.QuickMart.Dto.PurchaseResponse;
 import com.garyMeledath.QuickMart.service.CheckoutService;
 
-@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/api/checkout")
 public class CheckoutController {
