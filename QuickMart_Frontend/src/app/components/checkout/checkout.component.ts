@@ -168,7 +168,7 @@ this.reviewCartDetails();
     // setup an order
     let order = new Order();
     order.totalPrice=this.totalPrice;
-    order.TotalQuantity=this.totalQuantity;
+    order.totalQuantity=this.totalQuantity;
 
 
     // get cart items
